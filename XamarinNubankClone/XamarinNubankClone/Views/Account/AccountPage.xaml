@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinNubankClone.Views.Account.AccountPage">
+    <ContentView.Content>
+        <ScrollView>
+            <StackLayout Margin="20,0">
+                <StackLayout HorizontalOptions="Center">
+                    <Image Source="qrcode.png" WidthRequest="50" />
+                    <Label FontSize="Micro" TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Banco "></Span>
+                                <Span FontAttributes="Bold" Text="260 - Nu Pagamento S.A."></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="Micro"
+                           TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Agência "></Span>
+                                <Span FontAttributes="Bold" Text="0001"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label FontSize="Micro"
+                           TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Conta "></Span>
+                                <Span FontAttributes="Bold" Text="4181204-1"></Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="#CCCCCC" Margin="0,20,0,0" />
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
+                           FlexLayout.Basis="50"
+                     FlexLayout.Order="-1"/>
+                    <Label Text="Me ajuda" 
+                           FontSize="Small"
+                           FlexLayout.Grow="1"
+                           TextColor="#FFFFFF"/>
+                    <Label Text=">" 
+                           Margin="0,0,10,0"
+                           HorizontalTextAlignment="End"
+                           FlexLayout.Basis="50"
+                           TextColor="#FFFFFF"/>
+                </FlexLayout>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="#CCCCCC" />
+                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
+                           FlexLayout.Basis="50"
+                     FlexLayout.Order="-1"/>
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0"
+                        FlexLayout.Grow="1">
+                        <Label Text="Perfil" 
+                           FontSize="Small"
+                           TextColor="#FFFFFF"/>
+                        <Label TextColor="#BA85CA" Text="Nome de peferência, telefone, e-mail" FontSize="Micro" />
+                    </StackLayout>
+                    <Label Text=">" 
+                           Margin="0,0,10,0"
+                           HorizontalTextAlignment="End"
+                           FlexLayout.Basis="50"
+                           TextColor="#FFFFFF"/>
+                </FlexLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentView.Content>
+</ContentView>

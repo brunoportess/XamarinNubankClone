@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinNubankClone.Views.Home.CustomCell.AccountHomeCell"
+             Padding="15,0">
+    <ContentView.Content>
+        <Grid RowSpacing="0" 
+             BackgroundColor="#FFFFFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Padding="20,30,0,0" Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Image Source="icon.png"></Image>
+                <Label Text="Conta" FontSize="Medium"></Label>
+            </StackLayout>
+
+            <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Label Text="Saldo dispoível"></Label>
+                <Label FontSize="Large" Text="R$ 64,07"></Label>
+            </StackLayout>
+
+            <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
+                <Image Source="icon.png"></Image>
+                <Label FontSize="Small" Text="Transferência de R4 46,00 recebida de Fulano Beltrano Ciclano hoje" LineBreakMode="WordWrap"></Label>
+            </StackLayout>
+            
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

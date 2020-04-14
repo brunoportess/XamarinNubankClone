@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:XamarinNubankClone.Views.Home;assembly=XamarinNubankClone"
+             xmlns:account="clr-namespace:XamarinNubankClone.Views.Account;assembly=XamarinNubankClone"
+             x:Class="XamarinNubankClone.Views.Home.HomePage"
+             BackgroundColor="#82269e">
+    <ContentPage.Content>
+        <Grid  Padding="0,10,0,0" VerticalOptions="FillAndExpand" x:Name="gridPage">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" 
+                         Grid.Column="0"
+                         Grid.Row="0">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </StackLayout.GestureRecognizers>
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label Text="Bruno" TextColor="#FFFFFF" FontAttributes="Bold" FontSize="Medium"></Label>
+            </StackLayout>
+            <Image Source="ic_transaction_detail_arrow_down.png" 
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   WidthRequest="10"
+                   Margin="0,0,0,30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <account:AccountPage
+                x:Name="accountPage"
+                
+                Grid.Row="2"
+                Grid.RowSpan="3"
+                Grid.Column="0"></account:AccountPage>
+            
+            <StackLayout
+                x:Name="Resumes"
+                Grid.Column="0"
+                Grid.Row="3">
+                <CarouselView 
+                
+                ItemsSource="{Binding ResumeData}"
+                ItemTemplate="{local:TemplateSelector}"
+                x:Name="carouselMenu">
+                </CarouselView>
+                <IndicatorView 
+                 x:Name="indicatorView"
+                 ItemsSourceBy="carouselMenu" 
+                 IndicatorsShape="Circle" 
+                 IndicatorColor="#923fab" 
+                 SelectedIndicatorColor="White" 
+                 HorizontalOptions="Center" />
+            </StackLayout>
+            
+            
+
+            <StackLayout
+                Grid.Row="4"
+                Grid.Column="0"
+                HeightRequest="150"
+                VerticalOptions="End"
+                x:Name="optionsMenu"
+                Spacing="0">
+                <CollectionView 
+                    VerticalOptions="FillAndExpand"
+                    ItemsSource="{Binding MenuOptions}" ItemsLayout="HorizontalList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <StackLayout Padding="10" Spacing="0">
+                                    <Frame CornerRadius="5" BackgroundColor="#923fab" Padding="7">
+                                        <StackLayout Orientation="Vertical"  WidthRequest="70" HeightRequest="80" Margin="5,0">
+                                            <Image Source="{Binding MenuIcon}" VerticalOptions="StartAndExpand"></Image>
+                                            <Label Text="{Binding MenuText}" VerticalOptions="End" FontSize="Small" TextColor="#FFFFFF" LineBreakMode="WordWrap" Margin="0"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinNubankClone.Views.Home.CustomCell.MenuContentView">
+  <ContentView.Content>
+        <Frame CornerRadius="15" BackgroundColor="#F0F0F0B3">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Image Source="{Binding MenuIcon}" VerticalOptions="StartAndExpand"></Image>
+                <Label Text="{Binding MenuText}" VerticalOptions="End"></Label>
+            </StackLayout>
+        </Frame>
+  </ContentView.Content>
+</ContentView>

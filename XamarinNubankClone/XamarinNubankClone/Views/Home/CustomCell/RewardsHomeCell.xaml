@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinNubankClone.Views.Home.CustomCell.RewardsHomeCell"
+             Padding="15,0">
+    <ContentView.Content>
+        <Grid RowSpacing="0" BackgroundColor="#FFF">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Padding="20,30,0,0" Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                <Image Source="icon.png"></Image>
+                <Label Text="Rewards" FontSize="Medium"></Label>
+            </StackLayout>
+
+            <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <Label TextColor="#82269e">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="4.160 " FontAttributes="Bold" FontSize="Large"></Span>
+                            <Span Text="pts" FontSize="Large"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Você acumulou " FontSize="Small"></Span>
+                            <Span TextColor="#82269e" Text="3.343 pontos " FontSize="Small" FontAttributes="Bold"></Span>
+                            <Span Text="nos últimos 30 dias" FontSize="Small"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
+                <Image Source="icon.png"></Image>
+                <Label FontSize="Small" Text="Aágar compra de R$ 27,00 em Burgão Lanches com 2.700pts" LineBreakMode="WordWrap"></Label>
+            </StackLayout>
+
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>
