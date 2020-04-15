@@ -1,8 +1,10 @@
-﻿using System;
+﻿using XamarinNubankClone.ViewModels;
+using XamarinNubankClone.Views;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using XamarinNubankClone.ViewModels;
+using XamarinNubankClone.Controls;
 
 namespace XamarinNubankClone.Helpers
 {
@@ -14,15 +16,24 @@ namespace XamarinNubankClone.Helpers
         NavigationService() =>
             mapeamento = new Dictionary<Type, Type>();
 
-        INavigation Navigation => ((NavigationPage)App.Current.MainPage).Navigation;
+        INavigation Navigation => ((TransitionNavigationPage)App.Current.MainPage).Navigation;
 
-       
-
-        public async Task PushAsync<TViewModel>(bool MD = false, params object[] args) where TViewModel : BaseViewModel
+        async Task NavigateTo(Page page)
         {
+            var firstPage = Navigation.NavigationStack[0];
+
+            Navigation.InsertPageBefore(page, firstPage);
+
+            await Navigation.PopToRootAsync();
+        }
+
+        public async Task PushAsync<TViewModel>(TransitionType type = TransitionType.Default, params object[] args) where TViewModel : BaseViewModel
+        {
+            ((TransitionNavigationPage)App.Current.MainPage).TransitionType = type;
+
             var page = Locator<TViewModel>();
 
-                await Navigation.PushAsync(page);
+            await Navigation.PushAsync(page);
 
 
             await (page.BindingContext as BaseViewModel).InitializeAsync(args);
@@ -30,6 +41,7 @@ namespace XamarinNubankClone.Helpers
         Page Locator<TViewModel>() where TViewModel : BaseViewModel
         {
             var viewModelType = typeof(TViewModel);
+            var viewModelTypeName = viewModelType.Name;
             var viewType = VerificarPage(viewModelType);
             Page page;
             if (viewType == null)
@@ -60,13 +72,17 @@ namespace XamarinNubankClone.Helpers
         public async Task PopToRootAsync() =>
             await Application.Current.MainPage.Navigation.PopToRootAsync();
 
-        public async Task PushModalAsync<TViewModel>(params object[] args) where TViewModel : BaseViewModel
+        public async Task PushModalAsync<TViewModel>(TransitionType type = TransitionType.Default, params object[] args) where TViewModel : BaseViewModel
         {
+            ((TransitionNavigationPage)App.Current.MainPage).TransitionType = type;
             var page = Locator<TViewModel>();
 
-            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+            //await Application.Current.MainPage.Navigation.PushModalAsync(page);
+            await Navigation.PushModalAsync(page);
             await (page.BindingContext as BaseViewModel).InitializeAsync(args);
         }
+
+
 
         public async Task PopModalAsync()
             => await Application.Current.MainPage.Navigation.PopModalAsync();

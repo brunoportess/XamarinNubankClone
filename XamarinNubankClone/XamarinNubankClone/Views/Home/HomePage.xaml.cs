@@ -13,6 +13,7 @@ namespace XamarinNubankClone.Views.Home
         public HomePage()
         {
             InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
             accountPage.FadeTo(.01, 250, Easing.SinInOut);
         }
 
@@ -36,6 +37,7 @@ namespace XamarinNubankClone.Views.Home
             //Resumes.FadeTo(1, 250, Easing.SinInOut);
             //optionsMenu.FadeTo(1, 250, Easing.SinInOut);
             accountPage.FadeTo(.01, 250, Easing.SinInOut);
+            arrow_menu.RotateXTo(0);
         }
 
         //DESCE
@@ -48,6 +50,7 @@ namespace XamarinNubankClone.Views.Home
             //Resumes.FadeTo(.01, 250, Easing.SinInOut);
             //optionsMenu.FadeTo(.01, 250, Easing.SinInOut);
             accountPage.FadeTo(1, 250, Easing.SinInOut);
+            arrow_menu.RotateXTo(180);
         }
 
         protected override void OnSizeAllocated(double width, double height)

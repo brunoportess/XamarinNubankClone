@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XamarinNubankClone.Controls;
 using XamarinNubankClone.Views.Home;
 
 namespace XamarinNubankClone
@@ -10,11 +11,16 @@ namespace XamarinNubankClone
         public App()
         {
             InitializeComponent();
+           MainPage = new TransitionNavigationPage(new HomePage
+            {
+               
+                BindingContext = new ViewModels.Home.HomeViewModel()
+            });
 
-            MainPage = new HomePage
+            /*MainPage = new HomePage
             {
                 BindingContext = new ViewModels.Home.HomeViewModel()
-            };
+            };*/
                 
         }
 

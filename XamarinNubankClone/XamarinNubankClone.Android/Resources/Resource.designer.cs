@@ -2824,17 +2824,59 @@ namespace XamarinNubankClone.Droid
 			// aapt resource value: 0x7F01000F
 			public const int design_snackbar_out = 2130771983;
 			
+			// aapt resource value: 0x7F010014
+			public const int EnterFromLeft = 2130771988;
+			
+			// aapt resource value: 0x7F010015
+			public const int EnterFromRight = 2130771989;
+			
 			// aapt resource value: 0x7F010010
-			public const int EnterFromLeft = 2130771984;
+			public const int enter_bottom = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public const int EnterFromRight = 2130771985;
+			public const int enter_left = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int ExitToLeft = 2130771986;
+			public const int enter_right = 2130771986;
 			
 			// aapt resource value: 0x7F010013
-			public const int ExitToRight = 2130771987;
+			public const int enter_top = 2130771987;
+			
+			// aapt resource value: 0x7F01001A
+			public const int ExitToLeft = 2130771994;
+			
+			// aapt resource value: 0x7F01001B
+			public const int ExitToRight = 2130771995;
+			
+			// aapt resource value: 0x7F010016
+			public const int exit_bottom = 2130771990;
+			
+			// aapt resource value: 0x7F010017
+			public const int exit_left = 2130771991;
+			
+			// aapt resource value: 0x7F010018
+			public const int exit_right = 2130771992;
+			
+			// aapt resource value: 0x7F010019
+			public const int exit_top = 2130771993;
+			
+			// aapt resource value: 0x7F01001C
+			public const int fade_in = 2130771996;
+			
+			// aapt resource value: 0x7F01001D
+			public const int fade_out = 2130771997;
+			
+			// aapt resource value: 0x7F01001E
+			public const int flip_in = 2130771998;
+			
+			// aapt resource value: 0x7F01001F
+			public const int flip_out = 2130771999;
+			
+			// aapt resource value: 0x7F010020
+			public const int scale_in = 2130772000;
+			
+			// aapt resource value: 0x7F010021
+			public const int scale_out = 2130772001;
 			
 			static Animation()
 			{

@@ -7,5 +7,42 @@
              x:Class="XamarinNubankClone.App">
     <Application.Resources>
 
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="BoldFont">
+                <On Platform="Android" Value="GothamSSm-Bold.ttf#Gotham SSm Bold" />
+                <On Platform="UWP" Value="/Assets/GothamSSm-Bold.ttf#Gotham SSm Bold" />
+                <On Platform="iOS" Value="GothamSSm-Bold" />
+            </OnPlatform>
+            
+            <OnPlatform x:TypeArguments="x:String" x:Key="LightFont">
+                <On Platform="Android" Value="GothamSSm-Light.ttf#Gotham SSm Light" />
+                <On Platform="UWP" Value="/Assets/GothamSSm-Light.ttf#Gotham SSm Light" />
+                <On Platform="iOS" Value="GothamSSm-Light" />
+            </OnPlatform>
+            
+            <OnPlatform x:TypeArguments="x:String" x:Key="MediumFont">
+                <On Platform="Android" Value="GothamSSm-Medium.ttf#Gotham SSm Medium" />
+                <On Platform="UWP" Value="/Assets/GothamSSm-Medium.ttf#Gotham SSm Medium" />
+                <On Platform="iOS" Value="GothamSSm-Medium" />
+            </OnPlatform>
+            
+            <OnPlatform x:TypeArguments="x:String" x:Key="BookFont">
+                <On Platform="Android" Value="GothamSSm-Book.ttf#Gotham SSm Book" />
+                <On Platform="UWP" Value="/Assets/GothamSSm-Book.ttf#Gotham SSm Book" />
+                <On Platform="iOS" Value="GothamSSm-Book" />
+            </OnPlatform>
+
+            <Style x:Key="labelLight" TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
+            </Style>
+
+            <Style x:Key="labelBook" TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource BookFont}" />
+            </Style>
+            
+            <Style x:Key="labelBold" TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
