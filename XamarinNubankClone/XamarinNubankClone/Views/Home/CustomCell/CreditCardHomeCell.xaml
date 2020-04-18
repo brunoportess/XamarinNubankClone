@@ -23,24 +23,24 @@
 
             <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="20,15,0,0">
                 <Image Source="ic_cardtracking.png" WidthRequest="30"></Image>
-                <Label Text="Cartão de crédito" FontSize="Medium"></Label>
+                <Label Style="{StaticResource labelBook}" Text="Cartão de crédito"></Label>
             </StackLayout>
 
             <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Spacing="0">
-                <Label Text="FATURA ATUAL" TextColor="#18b8c2" FontSize="Small"></Label>
-                <Label TextColor="#18b8c2">
+                <Label Style="{StaticResource labelBold}" Text="FATURA ATUAL" TextColor="#18b8c2" ></Label>
+                <Label Style="{StaticResource labelBook}" TextColor="#18b8c2">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="R$ " FontSize="Large"></Span>
-                            <Span Text="2.000,46" FontSize="Large" FontAttributes="Bold"></Span>
+                            <Span Text="R$ "  FontSize="Title" ></Span>
+                            <Span Text="2.000,46" FontSize="Title" FontAttributes="Bold"></Span>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 <Label>
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Limite disponível " FontSize="Small"></Span>
-                            <Span TextColor="#9fd12a" Text="3.794,32" FontSize="Small" FontAttributes="Bold"></Span>
+                            <Span Style="{StaticResource labelBook}" Text="Limite disponível " FontSize="Small"></Span>
+                            <Span Style="{StaticResource labelBook}" TextColor="#9fd12a" Text="3.794,32" FontAttributes="Bold"></Span>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -48,7 +48,7 @@
 
             <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
                 <Image Source="icon.png"></Image>
-                <Label FontSize="Micro" Text="Compra mais recente em Drograria no valor de R$24,69" LineBreakMode="WordWrap"></Label>
+                <Label Style="{StaticResource labelBook}" FontSize="Small" Text="Compra mais recente em Drograria no valor de R$24,69" LineBreakMode="WordWrap"></Label>
             </StackLayout>
             
             <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" WidthRequest="10" VerticalOptions="FillAndExpand" Spacing="0">

@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" 
@@ -27,7 +27,7 @@
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
                 </StackLayout.GestureRecognizers>
                 <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
-                <Label Style="{StaticResource labelBold}" Text="Bruno" TextColor="#FFFFFF" ></Label>
+                <Label Style="{StaticResource labelBold}" FontSize="Medium" Text="Bruno" TextColor="#FFFFFF" ></Label>
             </StackLayout>
             <Image Source="ic_transaction_detail_arrow_down.png" 
                    x:Name="arrow_menu"
@@ -48,6 +48,8 @@
 
             <StackLayout
                    Margin="0,20,0,0"
+                HeightRequest="450"
+                VerticalOptions="Center"
                 x:Name="Resumes"
                 Grid.Column="0"
                 Grid.Row="3">
@@ -68,32 +70,27 @@
             
             
 
-            <StackLayout
+            <CollectionView 
                 Grid.Row="4"
                 Grid.Column="0"
-                HeightRequest="150"
-                VerticalOptions="End"
+                HeightRequest="120"
                 x:Name="optionsMenu"
-                Spacing="0">
-                <CollectionView 
-                    VerticalOptions="FillAndExpand"
                     ItemsSource="{Binding MenuOptions}" ItemsLayout="HorizontalList">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <ContentView>
-                                <StackLayout Padding="10" Spacing="0">
-                                    <Frame CornerRadius="5" BackgroundColor="#923fab" Padding="7">
-                                        <StackLayout Orientation="Vertical"  WidthRequest="70" HeightRequest="80" Margin="5,0">
-                                            <Image Source="{Binding MenuIcon}" VerticalOptions="StartAndExpand"></Image>
-                                            <Label Style="{StaticResource labelBook}" Text="{Binding MenuText}" VerticalOptions="End" FontSize="Micro" TextColor="#FFFFFF" LineBreakMode="WordWrap" Margin="0"></Label>
-                                        </StackLayout>
-                                    </Frame>
-                                </StackLayout>
-                            </ContentView>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </StackLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <StackLayout Padding="10" Spacing="0">
+                                <Frame CornerRadius="5" BackgroundColor="#923fab" Padding="7">
+                                    <StackLayout Orientation="Vertical"  WidthRequest="70" HeightRequest="80" Margin="5,0">
+                                        <Image Source="{Binding MenuIcon}" VerticalOptions="StartAndExpand"></Image>
+                                        <Label Style="{StaticResource labelBook}" Text="{Binding MenuText}" VerticalOptions="End" FontSize="Micro" TextColor="#FFFFFF" LineBreakMode="WordWrap" Margin="0"></Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -9,13 +9,13 @@
         <ScrollView Margin="0,5,0,30">
             <StackLayout Margin="20,0">
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                    <Image Source="qrcode.png" WidthRequest="70" />
+                    <Image Source="qrcode.png" WidthRequest="100" />
                     <Label 
                         TextColor="#FFFFFF">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Banco " Style="{StaticResource labelBook}" FontSize="Micro"></Span>
-                                <Span Style="{StaticResource labelBold}" FontSize="Micro" Text="260 - Nu Pagamento S.A."></Span>
+                                <Span Text="Banco " Style="{StaticResource labelBook}" FontSize="Small"></Span>
+                                <Span Style="{StaticResource labelBold}" FontSize="Small" Text="260 - Nu Pagamento S.A."></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -23,8 +23,8 @@
                            TextColor="#FFFFFF">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span  Style="{StaticResource labelBook}" FontSize="Micro" Text="Agência "></Span>
-                                <Span Style="{StaticResource labelBold}" FontSize="Micro" Text="0001"></Span>
+                                <Span  Style="{StaticResource labelBook}" FontSize="Small" Text="Agência "></Span>
+                                <Span Style="{StaticResource labelBold}" FontSize="Small" Text="0001"></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
@@ -33,122 +33,109 @@
                            TextColor="#FFFFFF">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Style="{StaticResource labelBook}" FontSize="Micro" Text="Conta "></Span>
-                                <Span Style="{StaticResource labelBold}" FontSize="Micro" FontAttributes="Bold" Text="4181204-1"></Span>
+                                <Span Style="{StaticResource labelBook}" FontSize="Small" Text="Conta "></Span>
+                                <Span Style="{StaticResource labelBold}" FontSize="Small" FontAttributes="Bold" Text="4181204-1"></Span>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
                 </StackLayout>
 
-                <BoxView HeightRequest="0.5" BackgroundColor="#923fab" Margin="0,20,0,0" />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                <BoxView HeightRequest="0.5" BackgroundColor="#923fab"  />
+                <StackLayout Orientation="Horizontal" Padding="0,10">
                     <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
+                           />
                     <Label Text="Me ajuda" 
-                           VerticalTextAlignment="Center"
-                           FontSize="Micro"
-                           FlexLayout.Grow="1"
+                           Style="{StaticResource labelBook}"
                            TextColor="#FFFFFF"/>
                     <Label Text=">" 
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
+                           HorizontalOptions="EndAndExpand"
                            FlexLayout.Basis="50"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </StackLayout>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
-                    <FlexLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding PerfilCommand}" NumberOfTapsRequired="1" />
-                    </FlexLayout.GestureRecognizers>
+                <Grid RowSpacing="0" VerticalOptions="Center"  Padding="0,5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
                     <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
-                    <StackLayout Orientation="Vertical"
-                                 Spacing="0"
-                        FlexLayout.Grow="1">
-                        <Label Text="Perfil" 
-                               VerticalTextAlignment="Center"
-                           FontSize="Micro"
-                           TextColor="#FFFFFF"/>
-                        <Label TextColor="#BA85CA" Text="Nome de peferência, telefone, e-mail" FontSize="8" />
-                    </StackLayout>
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                            Grid.Column="0"
+                           Grid.Row="0"/>
+                    <Label Text="Perfil" 
+                               Style="{StaticResource labelBook}"
+                           TextColor="#FFFFFF"
+                           
+                           Grid.Row="0"
+                           Grid.Column="1"/>
+                    <Label Grid.Row="1"
+                           Grid.Column="1"
+                           Style="{StaticResource labelBook}"
+                           TextColor="#BA85CA" Text="Nome de peferência, telefone, e-mail" FontSize="Micro" />
                     <Label Text=">" 
+                           Grid.Row="0"
+                           Grid.RowSpan="2"
+                           Grid.Column="2"
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
-                           FlexLayout.Basis="50"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </Grid>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
+                <StackLayout Orientation="Horizontal" Padding="0,10">
                     <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
+                           />
                     <Label Text="Configurar conta" 
-                           FontSize="Micro"
-                           VerticalTextAlignment="Center"
-                           FlexLayout.Grow="1"
+                           Style="{StaticResource labelBook}"
                            TextColor="#FFFFFF"/>
                     <Label Text=">" 
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
-                           FlexLayout.Basis="50"
+                           HorizontalOptions="EndAndExpand"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </StackLayout>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
-                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
+                <StackLayout Orientation="Horizontal" Padding="0,10">
+                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" />
                     <Label Text="Configurar cartão" 
-                           FontSize="Micro"
-                           VerticalTextAlignment="Center"
-                           FlexLayout.Grow="1"
+                           Style="{StaticResource labelBook}"
                            TextColor="#FFFFFF"/>
                     <Label Text=">" 
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
-                           FlexLayout.Basis="50"
+                           HorizontalOptions="EndAndExpand"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </StackLayout>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab"  />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
-                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
+                <StackLayout Orientation="Horizontal" Padding="0,10">
+                    <Image Source="ic_nu_logo_white.png" HeightRequest="20" />
                     <Label Text="Configurar rewards" 
-                           FontSize="Micro"
-                           VerticalTextAlignment="Center"
-                           FlexLayout.Grow="1"
+                           Style="{StaticResource labelBook}"
                            TextColor="#FFFFFF"/>
                     <Label Text=">" 
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
-                           FlexLayout.Basis="50"
+                           HorizontalOptions="EndAndExpand"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </StackLayout>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" />
-                <FlexLayout Direction="Row" FlexLayout.Grow="1">
-                    <Image Source="ic_nu_logo_white.png" HeightRequest="15" 
-                           FlexLayout.Basis="50"
-                     FlexLayout.Order="-1"/>
+                <StackLayout Orientation="Horizontal" Padding="0,10">
+                    <Image Source="ic_nu_logo_white.png" HeightRequest="15" />
                     <Label Text="Configuações do app" 
                            Style="{StaticResource labelBook}"
-                           VerticalTextAlignment="Center"
-                           FontSize="Micro"
-                           FlexLayout.Grow="1"
                            TextColor="#FFFFFF"/>
                     <Label Text=">" 
                            Margin="0,0,10,0"
-                           HorizontalTextAlignment="End"
-                           FlexLayout.Basis="50"
+                           HorizontalOptions="EndAndExpand"
                            TextColor="#FFFFFF"/>
-                </FlexLayout>
+                </StackLayout>
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" Margin="0,0,0,10" />
 
                 <Frame
@@ -158,7 +145,7 @@
                     <Label
                         Style="{StaticResource labelBold}"
                         Text="ACESSAR OUTRA CONTA" 
-                        FontSize="Micro"
+                        
                         HorizontalOptions="Center"
                         TextColor="#FFFFFF"></Label>
                 </Frame>
@@ -170,7 +157,6 @@
                     <Label
                         Style="{StaticResource labelBold}"
                         Text="SAIR DA CONTA" 
-                        FontSize="Micro"
                         HorizontalOptions="Center"
                         TextColor="#FFFFFF"></Label>
                 </Frame>
