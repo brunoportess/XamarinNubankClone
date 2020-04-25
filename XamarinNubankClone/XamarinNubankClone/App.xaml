@@ -32,6 +32,10 @@
                 <On Platform="iOS" Value="GothamSSm-Book" />
             </OnPlatform>
 
+            <Style x:Key="labelMedium" TargetType="Label" >
+                <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+            </Style>
+
             <Style x:Key="labelLight" TargetType="Label" >
                 <Setter Property="FontFamily" Value="{StaticResource LightFont}" />
             </Style>

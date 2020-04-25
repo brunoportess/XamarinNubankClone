@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+﻿using System.Diagnostics;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace XamarinNubankClone.ViewModels.Perfil
+namespace XamarinNubankClone.ViewModels.Account
 {
-    public class PerfilViewModel : BaseViewModel
+    public class ProfileViewModel : BaseViewModel
     {
         public ICommand GoBackCommand => new Command(GoBackCommandExecute);
-        public PerfilViewModel()
+        public ProfileViewModel()
         {
             Debug.WriteLine("OK");
         }

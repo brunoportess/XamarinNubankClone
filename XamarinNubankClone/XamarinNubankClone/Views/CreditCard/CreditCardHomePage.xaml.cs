@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XamarinNubankClone.Views.Perfil
+namespace XamarinNubankClone.Views.CreditCard
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PerfilPage : ContentPage
+    public partial class CreditCardHomePage : ContentPage
     {
-        public PerfilPage()
+        public CreditCardHomePage()
         {
             InitializeComponent();
         }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using Xamarin.Forms;
 using XamarinNubankClone.Models;
 
 namespace XamarinNubankClone.ViewModels.Home
 {
 	public class HomeViewModel : BaseViewModel
     {
+		public Command PageSelectedCommand { get; set; }
+
+
 		private List<ResumeDataModel> _resumeData;
 
 		public List<ResumeDataModel> ResumeData
@@ -25,8 +28,15 @@ namespace XamarinNubankClone.ViewModels.Home
 
 		public HomeViewModel()
 		{
+			PageSelectedCommand = new Command(PageSelectedCommandExecute);
 			PopulateResumeData();
 			PopulateMenuOptions();
+		}
+
+
+		private async void PageSelectedCommandExecute()
+		{
+			await DisplayAlert("Teste", "TESTE", "OK");
 		}
 
 		private void PopulateMenuOptions()

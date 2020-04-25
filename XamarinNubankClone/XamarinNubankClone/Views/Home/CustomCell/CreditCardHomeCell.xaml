@@ -6,10 +6,14 @@
              mc:Ignorable="d"
              x:Class="XamarinNubankClone.Views.Home.CustomCell.CreditCardHomeCell"
              Padding="15,0"
+             x:Name="CreditCardCell"
              >
-  <ContentView.Content>
+    <ContentView.Content>
         <Grid RowSpacing="0"
               BackgroundColor="#FFFFFF">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={x:Reference CreditCardCell}, Path=BindingContext.PageSelectedCommand}" />
+            </Grid.GestureRecognizers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -22,17 +26,18 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="20,15,0,0">
-                <Image Source="ic_cardtracking.png" WidthRequest="30"></Image>
+                <Image Source="ic_cardtracking.png" VerticalOptions="Start" WidthRequest="30" BackgroundColor="AliceBlue"></Image>
                 <Label Style="{StaticResource labelBook}" Text="Cartão de crédito"></Label>
             </StackLayout>
 
             <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Spacing="0">
-                <Label Style="{StaticResource labelBold}" Text="FATURA ATUAL" TextColor="#18b8c2" ></Label>
-                <Label Style="{StaticResource labelBook}" TextColor="#18b8c2">
+                <Label Style="{StaticResource labelBold}" Text="{Binding Source={x:Reference CreditCardCell}, Path=BindingContext.CompraRecente}" TextColor="#18b8c2" ></Label>
+                <Label Style="{StaticResource labelLight}" TextColor="#18b8c2">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="R$ "  FontSize="Title" ></Span>
-                            <Span Text="2.000,46" FontSize="Title" FontAttributes="Bold"></Span>
+                            <Span Text="R$ "  FontSize="28" ></Span>
+                            <Span Text="2.000" FontSize="28" FontAttributes="Bold"></Span>
+                            <Span Text=",46" FontSize="28"></Span>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -48,7 +53,7 @@
 
             <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
                 <Image Source="icon.png"></Image>
-                <Label Style="{StaticResource labelBook}" FontSize="Small" Text="Compra mais recente em Drograria no valor de R$24,69" LineBreakMode="WordWrap"></Label>
+                <Label Style="{StaticResource labelLight}" FontSize="Small" Text="{Binding CompraRecente, Mode=OneWay}" LineBreakMode="WordWrap"></Label>
             </StackLayout>
             
             <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" WidthRequest="10" VerticalOptions="FillAndExpand" Spacing="0">

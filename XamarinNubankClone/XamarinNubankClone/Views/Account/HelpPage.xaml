@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinNubankClone.Views.Account.HelpPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,15" Padding="15,15,15,0">
+                <Image Source="ic_close_nucolor.png" WidthRequest="20" HorizontalOptions="Start" Margin="10,0,0,0" x:Name="ClosePage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ClosePage_Tapped" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="ME AJUDA" Style="{StaticResource labelBold}" FontSize="Micro" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" TextColor="#000000"></Label>
+            </StackLayout>
+            <Grid Padding="15,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Frame Padding="15" CornerRadius="5" Margin="0,20" BorderColor="#DDD" HasShadow="False" Grid.Row="0" Grid.Column="0">
+                    <StackLayout Spacing="0" Orientation="Horizontal">
+                        <Label Style="{StaticResource labelBook}" Text="Qual é a sua dúvida?"></Label>
+                        <Image Source="nu_icon_search.png" HorizontalOptions="EndAndExpand" HeightRequest="20"></Image>
+                    </StackLayout>
+                </Frame>
+                <ListView
+                     Grid.Row="1" Grid.Column="0"
+                CachingStrategy="RecycleElement"
+                    SeparatorVisibility="Default"
+                    SeparatorColor="#CCCCCC"
+                    HasUnevenRows="True"
+                ItemsSource="{Binding ListTopicQuestions}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="0,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Style="{StaticResource labelBold}" TextColor="#000000" Text="{Binding Title}" Grid.Row="0" Grid.Column="0" />
+                                    <Label Style="{StaticResource labelLight}" Text="{Binding Subtitle}" Grid.Row="1" Grid.Column="0"/>
+                                    <Image Source="arrow_right.png" HorizontalOptions="EndAndExpand" HeightRequest="15" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"></Image>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid RowSpacing="0" HeightRequest="70">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <BoxView HeightRequest="0.5" BackgroundColor="#CCC" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"></BoxView>
+                <Label Style="{StaticResource labelBold}" TextColor="#82269e" Text="E-MAIL" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                <BoxView WidthRequest="0.5" BackgroundColor="#CCC" Grid.Row="1" Grid.Column="1"></BoxView>
+                <Label Style="{StaticResource labelBold}" TextColor="#82269e" Text="CHAT"  VerticalOptions="Center" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"  BackgroundColor="AliceBlue"></Label>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

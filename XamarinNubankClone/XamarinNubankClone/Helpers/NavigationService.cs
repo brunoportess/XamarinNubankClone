@@ -41,7 +41,6 @@ namespace XamarinNubankClone.Helpers
         Page Locator<TViewModel>() where TViewModel : BaseViewModel
         {
             var viewModelType = typeof(TViewModel);
-            var viewModelTypeName = viewModelType.Name;
             var viewType = VerificarPage(viewModelType);
             Page page;
             if (viewType == null)

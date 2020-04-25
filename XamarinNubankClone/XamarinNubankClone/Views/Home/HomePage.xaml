@@ -7,7 +7,8 @@
              xmlns:local="clr-namespace:XamarinNubankClone.Views.Home;assembly=XamarinNubankClone"
              xmlns:account="clr-namespace:XamarinNubankClone.Views.Account;assembly=XamarinNubankClone"
              x:Class="XamarinNubankClone.Views.Home.HomePage"
-             BackgroundColor="#82269e">
+             BackgroundColor="#82269e"
+             x:Name="HomePageName">
     <ContentPage.Content>
         <Grid  Padding="0,10,0,0" VerticalOptions="FillAndExpand" x:Name="gridPage">
             <Grid.ColumnDefinitions>
@@ -54,7 +55,6 @@
                 Grid.Column="0"
                 Grid.Row="3">
                 <CarouselView 
-                
                 ItemsSource="{Binding ResumeData}"
                 ItemTemplate="{local:TemplateSelector}"
                 x:Name="carouselMenu">
@@ -75,11 +75,15 @@
                 Grid.Column="0"
                 HeightRequest="120"
                 x:Name="optionsMenu"
-                    ItemsSource="{Binding MenuOptions}" ItemsLayout="HorizontalList">
+                    ItemsSource="{Binding MenuOptions}" 
+                ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
                             <StackLayout Padding="10" Spacing="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference HomePageName}, Path=BindingContext.PageSelectedCommand}" />
+                                </StackLayout.GestureRecognizers>
                                 <Frame CornerRadius="5" BackgroundColor="#923fab" Padding="7">
                                     <StackLayout Orientation="Vertical"  WidthRequest="70" HeightRequest="80" Margin="5,0">
                                         <Image Source="{Binding MenuIcon}" VerticalOptions="StartAndExpand"></Image>

@@ -26,13 +26,13 @@
             </StackLayout>
 
             <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                <Label Text="Saldo dispoível"></Label>
-                <Label FontSize="Large" Text="R$ 64,07"></Label>
+                <Label Style="{StaticResource labelLight}" Text="Saldo disponível" TextColor="#000"></Label>
+                <Label Style="{StaticResource labelMedium}" FontSize="28" Text="R$ 64,07" TextColor="#000"></Label>
             </StackLayout>
 
             <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
                 <Image Source="icon.png"></Image>
-                <Label FontSize="Small" Text="Transferência de R4 46,00 recebida de Fulano Beltrano Ciclano hoje" LineBreakMode="WordWrap"></Label>
+                <Label Style="{StaticResource labelMedium}" FontSize="Micro" Text="Transferência de R4 46,00 recebida de Fulano Beltrano Ciclano hoje" LineBreakMode="WordWrap" TextColor="#000"></Label>
             </StackLayout>
             
 

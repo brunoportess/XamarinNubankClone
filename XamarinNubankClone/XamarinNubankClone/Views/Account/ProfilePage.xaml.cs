@@ -1,18 +1,15 @@
 ﻿
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinNubankClone.ViewModels.Account;
 
 namespace XamarinNubankClone.Views.Account
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccountPage : ContentView
+    public partial class ProfilePage : ContentPage
     {
-        public AccountPage()
+        public ProfilePage()
         {
             InitializeComponent();
-            BindingContext = new AccountViewModel();
         }
-
     }
 }
