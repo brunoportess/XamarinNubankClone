@@ -11,7 +11,7 @@ namespace XamarinNubankClone.Views.Home.CustomCell
         public CreditCardHomeCell()
         {
             InitializeComponent();
-            this.BindingContext = new CreditCardHomeViewModel();
+            BindingContext = new CreditCardHomeViewModel();
         }
     }
 }

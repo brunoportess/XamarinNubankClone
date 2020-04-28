@@ -9,6 +9,12 @@ namespace XamarinNubankClone.ViewModels.Home
     {
 		public Command PageSelectedCommand { get; set; }
 
+		private string _compraRecente;
+		public string CompraRecente
+		{
+			get { return _compraRecente; }
+			set { SetProperty(ref _compraRecente, value); }
+		}
 
 		private List<ResumeDataModel> _resumeData;
 
@@ -28,6 +34,7 @@ namespace XamarinNubankClone.ViewModels.Home
 
 		public HomeViewModel()
 		{
+			CompraRecente = "Compra recente na sorveteria Tudo Gelador no valor de R$ 36,90";
 			PageSelectedCommand = new Command(PageSelectedCommandExecute);
 			PopulateResumeData();
 			PopulateMenuOptions();

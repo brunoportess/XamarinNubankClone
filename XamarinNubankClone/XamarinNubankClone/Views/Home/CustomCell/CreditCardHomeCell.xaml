@@ -31,7 +31,7 @@
             </StackLayout>
 
             <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Spacing="0">
-                <Label Style="{StaticResource labelBold}" Text="{Binding Source={x:Reference CreditCardCell}, Path=BindingContext.CompraRecente}" TextColor="#18b8c2" ></Label>
+                <Label Style="{StaticResource labelBold}" Text="FATURA ATUAL" TextColor="#18b8c2" ></Label>
                 <Label Style="{StaticResource labelLight}" TextColor="#18b8c2">
                     <Label.FormattedText>
                         <FormattedString>
