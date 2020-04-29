@@ -12,7 +12,7 @@
         <Grid RowSpacing="0"
               BackgroundColor="#FFFFFF">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Source={x:Reference CreditCardCell}, Path=BindingContext.PageSelectedCommand}" />
+                <TapGestureRecognizer Command="{Binding OnClickedCommand}" />
             </Grid.GestureRecognizers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

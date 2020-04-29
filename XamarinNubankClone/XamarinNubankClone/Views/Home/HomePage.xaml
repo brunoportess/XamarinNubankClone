@@ -82,7 +82,7 @@
                         <ContentView>
                             <StackLayout Padding="10" Spacing="0">
                                 <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={x:Reference HomePageName}, Path=BindingContext.PageSelectedCommand}" />
+                                    <TapGestureRecognizer Command="{Binding OnClickedCommand}" />
                                 </StackLayout.GestureRecognizers>
                                 <Frame CornerRadius="5" BackgroundColor="#923fab" Padding="7">
                                     <StackLayout Orientation="Vertical"  WidthRequest="70" HeightRequest="80" Margin="5,0">

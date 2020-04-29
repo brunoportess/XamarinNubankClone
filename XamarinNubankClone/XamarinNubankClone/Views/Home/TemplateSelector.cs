@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using XamarinNubankClone.Models;
+using XamarinNubankClone.ViewModels;
 using XamarinNubankClone.Views.Home.CustomCell;
 
 namespace XamarinNubankClone.Views.Home
@@ -15,16 +16,16 @@ namespace XamarinNubankClone.Views.Home
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            ResumeDataModel messageVm = item as ResumeDataModel;
+            ResumeDataViewModel messageVm = item as ResumeDataViewModel;
             if (messageVm == null)
                 return null;
             switch (messageVm.ResumeType)
             {
-                case ResumeDataModel.HomeType.Account:
+                case ResumeDataViewModel.HomeType.Account:
                     return AccountTemplate;
-                case ResumeDataModel.HomeType.CreditCard:
+                case ResumeDataViewModel.HomeType.CreditCard:
                     return CreditCardTemplate;
-                case ResumeDataModel.HomeType.Rewards:
+                case ResumeDataViewModel.HomeType.Rewards:
                     return RewardsTemplate;
                 default:
                     return null;
