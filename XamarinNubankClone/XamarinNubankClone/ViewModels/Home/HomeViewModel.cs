@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using Xamarin.Forms;
-using XamarinNubankClone.Models;
 
 namespace XamarinNubankClone.ViewModels.Home
 {
@@ -16,17 +14,17 @@ namespace XamarinNubankClone.ViewModels.Home
 			set { SetProperty(ref _compraRecente, value); }
 		}
 
-		private List<ResumeDataModel> _resumeData;
+		private List<ResumeDataViewModel> _resumeData;
 
-		public List<ResumeDataModel> ResumeData
+		public List<ResumeDataViewModel> ResumeData
 		{
 			get { return _resumeData; }
 			set { SetProperty(ref _resumeData, value); }
 		}
 
-		private List<MenuOptionModel> _MenuOptions;
+		private List<MenuOptionViewModel> _MenuOptions;
 
-		public List<MenuOptionModel> MenuOptions
+		public List<MenuOptionViewModel> MenuOptions
 		{
 			get { return _MenuOptions; }
 			set { SetProperty(ref _MenuOptions, value); }
@@ -48,64 +46,64 @@ namespace XamarinNubankClone.ViewModels.Home
 
 		private void PopulateMenuOptions()
 		{
-			MenuOptions = new List<MenuOptionModel>
+			MenuOptions = new List<MenuOptionViewModel>
 			{
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Indicar amigos"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Recarga de celular"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Cobrar"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Empréstimos"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Depositar"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Transferir"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Ajustar limite"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Me ajuda"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Pagar"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Bloquear cartão"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Cartão virtual"
 				},
-				new MenuOptionModel
+				new MenuOptionViewModel(PageSelectedCommand)
 				{
 					MenuIcon = "",
 					MenuText = "Organizar atalhos"
@@ -115,30 +113,30 @@ namespace XamarinNubankClone.ViewModels.Home
 
 		private void PopulateResumeData()
 		{
-			ResumeData = new List<ResumeDataModel>
+			ResumeData = new List<ResumeDataViewModel>
 			{
-				new ResumeDataModel
+				new ResumeDataViewModel(PageSelectedCommand)
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
 					ResumeDescription = "Compra mais recente em Drogaria",
-					ResumeType = ResumeDataModel.HomeType.CreditCard,
+					ResumeType = ResumeDataViewModel.HomeType.CreditCard,
 					Title = "Cartão de crédito"
 				},
-				new ResumeDataModel
+				new ResumeDataViewModel(PageSelectedCommand)
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
 					ResumeDescription = "Compra mais recente em Drogaria",
-					ResumeType = ResumeDataModel.HomeType.Account,
+					ResumeType = ResumeDataViewModel.HomeType.Account,
 					Title = "Cartão de crédito"
 				},
-				new ResumeDataModel
+				new ResumeDataViewModel(PageSelectedCommand)
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
 					ResumeDescription = "Compra mais recente em Drogaria",
-					ResumeType = ResumeDataModel.HomeType.Rewards,
+					ResumeType = ResumeDataViewModel.HomeType.Rewards,
 					Title = "Cartão de crédito"
 				}
 			};
