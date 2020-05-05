@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:converters="clr-namespace:XamarinNubankClone.Converters"
+             x:Class="XamarinNubankClone.Views.CreditCard.SpendHistoricPage"
+             BackgroundColor="#FFF">
+    <ContentPage.Content>
+        <StackLayout x:Name="spendPage" >
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
+            </StackLayout.GestureRecognizers>
+            <ListView
+            CachingStrategy="RecycleElement"
+            ItemsSource="{Binding ItemsTimeline}"
+            HasUnevenRows="True"
+            SeparatorVisibility="None">
+
+                <ListView.Header>
+                    <StackLayout Orientation="Vertical" Margin="0,0,0,20">
+                        <Label Text="COMPRA NEGADA" FontAttributes="Bold" HorizontalOptions="Center" Margin="20,20,20,0"></Label>
+                        <Label Style="{StaticResource labelBook}" HorizontalOptions="Center"  Margin="20,0" Text="Código de segurança incorreto do seu cartão virtual. Confira o número no verso do cartão"></Label>
+                        <StackLayout Orientation="Horizontal" Margin="20">
+                            <Frame
+                            BackgroundColor="#FFF"
+                            Padding="15,5"
+                            HorizontalOptions="FillAndExpand"
+                            BorderColor="#CCC">
+                                <Label
+                                Style="{StaticResource labelBold}"
+                                Text="SAIBA MAIS" 
+                                HorizontalOptions="Center"></Label>
+                            </Frame>
+
+                            <Frame
+                            HorizontalOptions="FillAndExpand"
+                            BackgroundColor="#FFF"
+                            Padding="15,5"
+                            BorderColor="#CCC">
+                                <Label
+                                Style="{StaticResource labelBold}"
+                                Text="OK" 
+                                HorizontalOptions="Center"></Label>
+                            </Frame>
+
+                        </StackLayout>
+                        <BoxView HeightRequest="1" BackgroundColor="#CCC" HorizontalOptions="Fill"></BoxView>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+
+                                <Label
+                              Grid.Column="1"
+                              Margin="10,0"
+                              Style="{StaticResource labelMedium}"
+                              Text="{Binding Title}" />
+
+                                <Label
+                              Grid.Row="1"
+                              Grid.Column="1"
+                              Margin="10,0,0,20"
+                              Style="{StaticResource labelBook}"
+                              Text="{Binding Subtitle}" />
+
+                                <BoxView
+                              Grid.RowSpan="2"
+                              Grid.Column="0"
+                              BackgroundColor="#CCC"
+                              HorizontalOptions="Center"
+                              IsVisible="{Binding IsLast, Converter={converters:NotBooleanConverter}}"
+                              VerticalOptions="Fill"
+                              WidthRequest="1" />
+
+                                <Image Grid.Column="0" Source="Bullet.png" />
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+  </ContentPage.Content>
+</ContentPage>

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using XamarinNubankClone.Models;
 
 namespace XamarinNubankClone.ViewModels.CreditCard
 {
-    public class CreditCardHomeViewModel : BaseViewModel
+    public class SpendHistoricViewModel : BaseViewModel
     {
         private List<CreditCardItemTimeLineModel> _ItemsTimeline;
 
@@ -12,7 +14,8 @@ namespace XamarinNubankClone.ViewModels.CreditCard
             get { return _ItemsTimeline; }
             set { SetProperty(ref _ItemsTimeline, value); }
         }
-        public CreditCardHomeViewModel()
+
+        public SpendHistoricViewModel()
         {
             Populate();
         }
@@ -87,7 +90,5 @@ namespace XamarinNubankClone.ViewModels.CreditCard
 
             ItemsTimeline = DataItems;
         }
-
     }
-    
 }

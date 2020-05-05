@@ -12,7 +12,7 @@
         <Grid RowSpacing="0"
               BackgroundColor="#FFFFFF">
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding OnClickedCommand}" />
+                <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="{Binding ResumeType}" />
             </Grid.GestureRecognizers>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -27,7 +27,7 @@
 
             <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Padding="20,15,0,0">
                 <Image Source="ic_cardtracking.png" VerticalOptions="Start" WidthRequest="30" BackgroundColor="AliceBlue"></Image>
-                <Label Style="{StaticResource labelBook}" Text="Cartão de crédito"></Label>
+                <Label Style="{StaticResource labelBook}" Text="{Binding Title}"></Label>
             </StackLayout>
 
             <StackLayout Padding="20,0,0,0" Orientation="Vertical" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Spacing="0">
@@ -36,8 +36,8 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="R$ "  FontSize="28" ></Span>
-                            <Span Text="2.000" FontSize="28" FontAttributes="Bold"></Span>
-                            <Span Text=",46" FontSize="28"></Span>
+                            <Span Text="{Binding MainValue}" FontSize="28" FontAttributes="Bold"></Span>
+                            <!--<Span Text=",46" FontSize="28"></Span>-->
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -45,7 +45,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Style="{StaticResource labelBook}" Text="Limite disponível " FontSize="Small"></Span>
-                            <Span Style="{StaticResource labelBook}" TextColor="#9fd12a" Text="3.794,32" FontAttributes="Bold"></Span>
+                            <Span Style="{StaticResource labelBook}" TextColor="#9fd12a" Text="{Binding MainValueLegend}" FontAttributes="Bold"></Span>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -53,7 +53,7 @@
 
             <StackLayout Padding="20" Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="#EEEEEE">
                 <Image Source="icon.png"></Image>
-                <Label Style="{StaticResource labelLight}" FontSize="Small" Text="{Binding CompraRecente, Mode=OneWay}" LineBreakMode="WordWrap"></Label>
+                <Label Style="{StaticResource labelLight}" FontSize="Small" Text="{Binding ResumeDescription, Mode=OneWay}" LineBreakMode="WordWrap"></Label>
             </StackLayout>
             
             <StackLayout Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" WidthRequest="10" VerticalOptions="FillAndExpand" Spacing="0">

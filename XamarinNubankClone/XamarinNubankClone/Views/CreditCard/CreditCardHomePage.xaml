@@ -4,12 +4,165 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="false"
+             xmlns:page="clr-namespace:XamarinNubankClone.Views.CreditCard"
+             xmlns:converters="clr-namespace:XamarinNubankClone.Converters"
              x:Class="XamarinNubankClone.Views.CreditCard.CreditCardHomePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Credit card home page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#82269e" x:Name="GridPage" >
+            <Grid.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_Display"/>
+                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            
+
+            <StackLayout Orientation="Vertical" BackgroundColor="#923fab" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Padding="0,10,0,0">
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Resumo" HorizontalOptions="Center" />
+                <Label Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="de Faturas" HorizontalOptions="Center" />
+                <BoxView HeightRequest="0.5" BackgroundColor="#82269e"></BoxView>
+
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Me Ajuda"  HorizontalOptions="Center"/>
+                <BoxView HeightRequest="0.5" BackgroundColor="#82269e"></BoxView>
+
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Indicar" HorizontalOptions="Center" />
+                <BoxView HeightRequest="0.5" BackgroundColor="#82269e"></BoxView>
+
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Bloqueio" HorizontalOptions="Center" />
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Temporário" HorizontalOptions="Center" />
+                <BoxView HeightRequest="0.5" BackgroundColor="#82269e"></BoxView>
+
+                <Image Source="ic_nu_logo_white.png" WidthRequest="30"></Image>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Cartão" HorizontalOptions="Center" />
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="Virtual" HorizontalOptions="Center" />
+
+                <Image Source="ic_nu_logo_white.png" VerticalOptions="EndAndExpand" WidthRequest="40" Margin="15,0,15,20"></Image>
+            </StackLayout>
+            
+            
+
+            <StackLayout Orientation="Vertical" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End">
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="PRÓXIMAS FATURAS"></Label>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="R$ 2.006,20" HorizontalOptions="End"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End">
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="FATURA ATUAL"></Label>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="R$ 2.006,20" HorizontalOptions="End"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End">
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="LIMITE DISPONÍVEL"></Label>
+                <Label  Style="{StaticResource labelLight}" FontSize="Micro" TextColor="#DDD" Text="R$ 2.006,20" HorizontalOptions="End"></Label>
+                <Label HorizontalOptions="End" Text="AJUSTAR" FontSize="Micro"></Label>
+            </StackLayout>
+
+            <!--<page:SpendHistoricPage BackgroundColor="Red" x:Name="spendPage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            </page:SpendHistoricPage>-->
+
+            <BoxView BackgroundColor="#f2b703" Grid.Row="0" Grid.Column="2" WidthRequest="10"></BoxView>
+            <BoxView BackgroundColor="#0cb9c9" Grid.Row="1" Grid.Column="2" WidthRequest="10"></BoxView>
+            <BoxView BackgroundColor="#9ad638" Grid.Row="2" Grid.Column="2" WidthRequest="10" ></BoxView>
+
+            <StackLayout x:Name="spendPage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" BackgroundColor="#FFF">
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
+                </StackLayout.GestureRecognizers>
+                <ListView
+                    CachingStrategy="RecycleElement"
+                    ItemsSource="{Binding ItemsTimeline}"
+                    HasUnevenRows="True"
+                    SeparatorVisibility="None">
+
+                    <ListView.Header>
+                        <StackLayout Orientation="Vertical" Margin="0,0,0,20">
+                            <Label Text="COMPRA NEGADA" FontAttributes="Bold" HorizontalOptions="Center" Margin="20,20,20,0"></Label>
+                            <Label Style="{StaticResource labelBook}" HorizontalOptions="Center"  Margin="20,0" Text="Código de segurança incorreto do seu cartão virtual. Confira o número no verso do cartão"></Label>
+                            <StackLayout Orientation="Horizontal" Margin="20">
+                                <Frame
+                                    BackgroundColor="#FFF"
+                                    Padding="15,5"
+                                    HorizontalOptions="FillAndExpand"
+                                    BorderColor="#CCC">
+                                    <Label
+                                        Style="{StaticResource labelBold}"
+                                        Text="SAIBA MAIS" 
+                                        HorizontalOptions="Center"></Label>
+                                </Frame>
+
+                                <Frame
+                                    HorizontalOptions="FillAndExpand"
+                                    BackgroundColor="#FFF"
+                                    Padding="15,5"
+                                    BorderColor="#CCC">
+                                    <Label
+                                        Style="{StaticResource labelBold}"
+                                        Text="OK" 
+                                        HorizontalOptions="Center"></Label>
+                                </Frame>
+
+                            </StackLayout>
+                            <BoxView HeightRequest="1" BackgroundColor="#CCC" HorizontalOptions="Fill"></BoxView>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid ColumnSpacing="0" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+
+                                    <Label
+                                      Grid.Column="1"
+                                      Margin="10,0"
+                                      Style="{StaticResource labelMedium}"
+                                      Text="{Binding Title}" />
+
+                                    <Label
+                                      Grid.Row="1"
+                                      Grid.Column="1"
+                                      Margin="10,0,0,20"
+                                      Style="{StaticResource labelBook}"
+                                      Text="{Binding Subtitle}" />
+
+                                    <BoxView
+                                      Grid.RowSpan="2"
+                                      Grid.Column="0"
+                                      BackgroundColor="#CCC"
+                                      HorizontalOptions="Center"
+                                      IsVisible="{Binding IsLast, Converter={converters:NotBooleanConverter}}"
+                                      VerticalOptions="Fill"
+                                      WidthRequest="1" />
+
+                                    <Image Grid.Column="0" Source="Bullet.png" />
+
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

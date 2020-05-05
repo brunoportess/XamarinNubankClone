@@ -30,26 +30,17 @@ namespace XamarinNubankClone.Views.Home
         //SOBE
         private void AnimateIn()
         {
-            //MainImage.LayoutTo(detailsRect, 1200, Easing.SpringOut);
-            Resumes.TranslateTo(0, 0, 1200, Easing.SpringOut);
-            optionsMenu.TranslateTo(0, 0, 1200, Easing.SpringOut);
-            //indicatorView.TranslateTo(0, 0, 1200, Easing.SpringOut);
-            //Resumes.FadeTo(1, 250, Easing.SinInOut);
-            //optionsMenu.FadeTo(1, 250, Easing.SinInOut);
-            accountPage.FadeTo(.01, 250, Easing.SinInOut);
+            Resumes.TranslateTo(0, 0, 600, Easing.Linear);
+            optionsMenu.TranslateTo(0, 0, 600, Easing.Linear);
+            accountPage.FadeTo(.01, 900, Easing.SinInOut);
             arrow_menu.RotateXTo(0);
         }
 
         //DESCE
         private void AnimateOut()
         {
-            //MainImage.LayoutTo(expandedRect, 1200, Easing.SpringOut);
-            Resumes.TranslateTo(0, gridPage.Height, 1200, Easing.SpringOut);
-            optionsMenu.TranslateTo(0, gridPage.Height, 1200, Easing.SpringOut);
-            //indicatorView.TranslateTo(-indicatorView.Width, 0, 1200, Easing.SpringOut);
-            //Resumes.FadeTo(.01, 250, Easing.SinInOut);
-            //optionsMenu.FadeTo(.01, 250, Easing.SinInOut);
-            accountPage.FadeTo(1, 250, Easing.SinInOut);
+            optionsMenu.TranslateTo(0, gridPage.Height, 600, Easing.Linear);
+            accountPage.FadeTo(1, 900, Easing.SinInOut);
             arrow_menu.RotateXTo(180);
         }
 
@@ -61,15 +52,11 @@ namespace XamarinNubankClone.Views.Home
 
             if (isExpanded)
             {
-                //MainImage.Layout(expandedRect);
                 carouselMenu.TranslationY = carouselMenu.Height;
-                //Title.TranslationX = -Title.Width;
             }
             else
             {
-                //MainImage.Layout(detailsRect);
                 carouselMenu.TranslationY = 0;
-                //Title.TranslationX = 0;
             }
         }
 

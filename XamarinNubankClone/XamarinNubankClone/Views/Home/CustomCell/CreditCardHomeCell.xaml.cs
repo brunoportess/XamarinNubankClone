@@ -1,7 +1,6 @@
 ﻿
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinNubankClone.ViewModels.Home.CustomCell;
 
 namespace XamarinNubankClone.Views.Home.CustomCell
 {
@@ -11,7 +10,6 @@ namespace XamarinNubankClone.Views.Home.CustomCell
         public CreditCardHomeCell()
         {
             InitializeComponent();
-            BindingContext = new CreditCardHomeViewModel();
         }
     }
 }

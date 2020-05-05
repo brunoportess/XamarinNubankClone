@@ -16,5 +16,15 @@ namespace XamarinNubankClone.Views.CreditCard
         {
             InitializeComponent();
         }
+
+        private void SwipeGestureRecognizer_Swiped_Display(object sender, SwipedEventArgs e)
+        {
+            spendPage.TranslateTo(0, 0, 250, Easing.Linear);
+        }
+
+        private void SwipeGestureRecognizer_Swiped_Hide(object sender, SwipedEventArgs e)
+        {
+            spendPage.TranslateTo(-GridPage.Width, 0, 250, Easing.Linear);
+        }
     }
 }

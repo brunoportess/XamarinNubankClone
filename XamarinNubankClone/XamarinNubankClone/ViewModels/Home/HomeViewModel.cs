@@ -115,7 +115,7 @@ namespace XamarinNubankClone.ViewModels.Home
 		{
 			ResumeData = new List<ResumeDataViewModel>
 			{
-				new ResumeDataViewModel(PageSelectedCommand)
+				new ResumeDataViewModel()
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
@@ -123,7 +123,7 @@ namespace XamarinNubankClone.ViewModels.Home
 					ResumeType = ResumeDataViewModel.HomeType.CreditCard,
 					Title = "Cartão de crédito"
 				},
-				new ResumeDataViewModel(PageSelectedCommand)
+				new ResumeDataViewModel()
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
@@ -131,7 +131,7 @@ namespace XamarinNubankClone.ViewModels.Home
 					ResumeType = ResumeDataViewModel.HomeType.Account,
 					Title = "Cartão de crédito"
 				},
-				new ResumeDataViewModel(PageSelectedCommand)
+				new ResumeDataViewModel()
 				{
 					MainValue = 2002.46,
 					MainValueLegend = "3793.44",
