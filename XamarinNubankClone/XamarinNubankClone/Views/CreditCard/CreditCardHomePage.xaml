@@ -10,10 +10,7 @@
              x:Class="XamarinNubankClone.Views.CreditCard.CreditCardHomePage">
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="#82269e" x:Name="GridPage" >
-            <Grid.GestureRecognizers>
-                <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_Display"/>
-                <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
-            </Grid.GestureRecognizers>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -78,75 +75,75 @@
             <BoxView BackgroundColor="#0cb9c9" Grid.Row="1" Grid.Column="2" WidthRequest="10"></BoxView>
             <BoxView BackgroundColor="#9ad638" Grid.Row="2" Grid.Column="2" WidthRequest="10" ></BoxView>
 
-            <StackLayout x:Name="spendPage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" BackgroundColor="#FFF">
-                <StackLayout.GestureRecognizers>
-                    <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
-                </StackLayout.GestureRecognizers>
-                <ListView
+            <ListView x:Name="spendPage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" BackgroundColor="#FFF"
                     CachingStrategy="RecycleElement"
                     ItemsSource="{Binding ItemsTimeline}"
                     HasUnevenRows="True"
                     SeparatorVisibility="None">
+                <ListView.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
+                </ListView.GestureRecognizers>
 
-                    <ListView.Header>
-                        <StackLayout Orientation="Vertical" Margin="0,0,0,20">
-                            <Label Text="COMPRA NEGADA" FontAttributes="Bold" HorizontalOptions="Center" Margin="20,20,20,0"></Label>
-                            <Label Style="{StaticResource labelBook}" HorizontalOptions="Center"  Margin="20,0" Text="Código de segurança incorreto do seu cartão virtual. Confira o número no verso do cartão"></Label>
-                            <StackLayout Orientation="Horizontal" Margin="20">
-                                <Frame
+                <ListView.Header>
+                    <StackLayout Orientation="Vertical" Margin="0,0,0,20">
+                        
+                        <Label Text="COMPRA NEGADA" FontAttributes="Bold" HorizontalOptions="Center" Margin="20,20,20,0"></Label>
+                        <Label Style="{StaticResource labelBook}" HorizontalOptions="Center"  Margin="20,0" Text="Código de segurança incorreto do seu cartão virtual. Confira o número no verso do cartão"></Label>
+                        <StackLayout Orientation="Horizontal" Margin="20">
+                            <Frame
                                     BackgroundColor="#FFF"
                                     Padding="15,5"
                                     HorizontalOptions="FillAndExpand"
                                     BorderColor="#CCC">
-                                    <Label
+                                <Label
                                         Style="{StaticResource labelBold}"
                                         Text="SAIBA MAIS" 
                                         HorizontalOptions="Center"></Label>
-                                </Frame>
+                            </Frame>
 
-                                <Frame
+                            <Frame
                                     HorizontalOptions="FillAndExpand"
                                     BackgroundColor="#FFF"
                                     Padding="15,5"
                                     BorderColor="#CCC">
-                                    <Label
+                                <Label
                                         Style="{StaticResource labelBold}"
                                         Text="OK" 
                                         HorizontalOptions="Center"></Label>
-                                </Frame>
+                            </Frame>
 
-                            </StackLayout>
-                            <BoxView HeightRequest="1" BackgroundColor="#CCC" HorizontalOptions="Fill"></BoxView>
                         </StackLayout>
-                    </ListView.Header>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid ColumnSpacing="0" RowSpacing="0">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="*" />
-                                    </Grid.RowDefinitions>
+                        <BoxView HeightRequest="1" BackgroundColor="#CCC" HorizontalOptions="Fill"></BoxView>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
 
 
-                                    <Label
+                                <Label
                                       Grid.Column="1"
                                       Margin="10,0"
                                       Style="{StaticResource labelMedium}"
                                       Text="{Binding Title}" />
 
-                                    <Label
+                                <Label
                                       Grid.Row="1"
                                       Grid.Column="1"
                                       Margin="10,0,0,20"
                                       Style="{StaticResource labelBook}"
                                       Text="{Binding Subtitle}" />
 
-                                    <BoxView
+                                <BoxView
                                       Grid.RowSpan="2"
                                       Grid.Column="0"
                                       BackgroundColor="#CCC"
@@ -155,13 +152,18 @@
                                       VerticalOptions="Fill"
                                       WidthRequest="1" />
 
-                                    <Image Grid.Column="0" Source="Bullet.png" />
+                                <Image Grid.Column="0" Source="Bullet.png" />
 
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" BackgroundColor="Transparent">
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="SwipeGestureRecognizer_Swiped_Display"/>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="SwipeGestureRecognizer_Swiped_Hide"/>
+                </StackLayout.GestureRecognizers>
             </StackLayout>
         </Grid>
     </ContentPage.Content>
