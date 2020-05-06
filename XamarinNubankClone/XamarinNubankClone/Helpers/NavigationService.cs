@@ -1,10 +1,9 @@
-﻿using XamarinNubankClone.ViewModels;
-using XamarinNubankClone.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamarinNubankClone.Controls;
+using XamarinNubankClone.ViewModels;
 
 namespace XamarinNubankClone.Helpers
 {
@@ -13,10 +12,14 @@ namespace XamarinNubankClone.Helpers
         static Lazy<NavigationService> LazyNavi = new Lazy<NavigationService>(() => new NavigationService());
         public static NavigationService Current => LazyNavi.Value;
 
-        NavigationService() =>
+        public NavigationService()
+        {
             mapeamento = new Dictionary<Type, Type>();
+            Navigation = ((TransitionNavigationPage)App.Current.MainPage).Navigation;
+        }
 
-        INavigation Navigation => ((TransitionNavigationPage)App.Current.MainPage).Navigation;
+        //INavigation Navigation => ((TransitionNavigationPage)App.Current.MainPage).Navigation;
+        public INavigation Navigation { get; set; }
 
         async Task NavigateTo(Page page)
         {
@@ -76,7 +79,6 @@ namespace XamarinNubankClone.Helpers
             ((TransitionNavigationPage)App.Current.MainPage).TransitionType = type;
             var page = Locator<TViewModel>();
 
-            //await Application.Current.MainPage.Navigation.PushModalAsync(page);
             await Navigation.PushModalAsync(page);
             await (page.BindingContext as BaseViewModel).InitializeAsync(args);
         }

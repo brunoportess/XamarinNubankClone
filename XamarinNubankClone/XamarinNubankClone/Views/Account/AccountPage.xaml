@@ -7,7 +7,7 @@
              x:Class="XamarinNubankClone.Views.Account.AccountPage">
     <ContentView.Content>
         <ScrollView Margin="0,5,0,30">
-            <StackLayout Margin="20,0">
+            <StackLayout Margin="20,0" CompressedLayout.IsHeadless="True">
                 <StackLayout HorizontalOptions="CenterAndExpand">
                     <Image Source="qrcode.png" WidthRequest="100" />
                     <Label 
@@ -58,7 +58,7 @@
                 </StackLayout>
 
                 <BoxView HeightRequest="0.5" BackgroundColor="#923fab" />
-                <Grid RowSpacing="0" VerticalOptions="Center"  Padding="0,5">
+                <Grid RowSpacing="0" VerticalOptions="Center"  Padding="0,5" CompressedLayout.IsHeadless="True">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavigateCommand}" CommandParameter="profile" />
                     </Grid.GestureRecognizers>

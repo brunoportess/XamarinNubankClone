@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Xamarin.Forms;
+using XamarinNubankClone.Controls;
 using XamarinNubankClone.ViewModels.CreditCard;
 
 namespace XamarinNubankClone.ViewModels
@@ -25,7 +26,8 @@ namespace XamarinNubankClone.ViewModels
                 case ResumeDataViewModel.HomeType.Account:
                     break;
                 case ResumeDataViewModel.HomeType.CreditCard:
-                    await Navigation.PushModalAsync<CreditCardHomeViewModel>();
+                    //await Navigation.PushModalAsync<CreditCardHomeViewModel>();
+                    await Navigation.PushModalAsync<CreditCardHomeViewModel>(TransitionType.Fade);
                     break;
                 case ResumeDataViewModel.HomeType.Rewards:
                     break;
